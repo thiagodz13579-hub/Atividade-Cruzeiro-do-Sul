@@ -1,0 +1,38 @@
+:root {
+  --bg: #ffffff; --surface: #f1f4f2; --text: #1b2421; --muted: #4a5753;
+  --link: #0b5f4a; --btn: #0b5f4a; --btn-text: #ffffff; --erro: #b00020; --foco: #c25400;
+}
+:root[data-theme="escuro"] {
+  --bg: #121212; --surface: #1d2321; --text: #e0e0e0; --muted: #b0b0b0;
+  --link: #7fd6bb; --btn: #7fd6bb; --btn-text: #121212; --erro: #ff8a80; --foco: #ffb86b;
+}
+:root[data-theme="contraste"] {
+  --bg: #000; --surface: #000; --text: #fff; --muted: #fff;
+  --link: #ffff00; --btn: #ffff00; --btn-text: #000; --erro: #ff9a9a; --foco: #ffff00;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 1.0625rem/1.6 Georgia, "Times New Roman", serif; background: var(--bg); color: var(--text); }
+header, main, footer { max-width: 42rem; margin: 0 auto; padding: 1rem; }
+header { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; justify-content: space-between; }
+h1 { font-size: 2rem; margin: 0; letter-spacing: -0.02em; }
+h2 { font-size: 1.35rem; }
+nav ul { display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0; }
+a { color: var(--link); text-decoration: underline; }
+a[aria-current="page"] { font-weight: 700; }
+label { display: block; font-weight: 700; margin-bottom: .25rem; }
+input[type=text] { width: 100%; padding: .6rem; font: inherit; color: var(--text); background: var(--surface); border: 2px solid var(--muted); border-radius: 4px; }
+input[aria-invalid="true"] { border-color: var(--erro); }
+button { font: inherit; padding: .5rem 1rem; margin-top: .5rem; cursor: pointer; color: var(--btn-text); background: var(--btn); border: 2px solid var(--btn); border-radius: 4px; }
+button.remover { background: transparent; color: var(--text); border-color: var(--muted); margin: 0; }
+.erro { color: var(--erro); font-weight: 700; }
+.erro::before { content: "⚠ "; }
+#itens, #sug { list-style: none; padding: 0; }
+#itens li { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .6rem; margin-bottom: .5rem; background: var(--surface); border-radius: 4px; }
+#itens label { display: flex; gap: .6rem; align-items: center; margin: 0; font-weight: 400; }
+li.feita span { text-decoration: line-through; color: var(--muted); }
+#sug li { margin-bottom: .4rem; }
+:focus-visible { outline: 3px solid var(--foco); outline-offset: 3px; }
+.pular { position: absolute; left: -999px; top: 0; background: var(--bg); padding: .5rem 1rem; z-index: 10; }
+.pular:focus { left: 0; }
+footer { color: var(--muted); font-size: .9rem; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
