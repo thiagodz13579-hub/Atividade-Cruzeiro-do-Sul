@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tarefas</title>
+  <script>
+    try { const t = localStorage.getItem("tema"); if (t) document.documentElement.dataset.theme = t; } catch {}
+  </script>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header>
+    <h1>Tarefas</h1>
+    <nav aria-label="Navegação principal">
+      <ul>
+        <li><a href="#lista" aria-current="page">Minha lista</a></li>
+        <li><a href="#sugestoes">Sugestões</a></li>
+      </ul>
+    </nav>
+    <button id="tema" type="button" aria-pressed="false">Tema: claro</button>
+  </header>
+  <main id="conteudo" tabindex="-1">
+    <section id="lista" aria-labelledby="t-lista">
+      <h2 id="t-lista">Minha lista</h2>
+      <form id="form" novalidate>
+        <label for="nova">Nova tarefa</label>
+        <input id="nova" type="text" aria-required="true" aria-describedby="erro" autocomplete="off" />
+        <button type="submit">Adicionar</button>
+        <p id="erro" class="erro" hidden></p>
+      </form>
+      <ul id="itens"></ul>
+      <p id="vazio">Nenhuma tarefa ainda. Digite uma acima e use Adicionar.</p>
+    </section>
+    <section id="sugestoes" aria-labelledby="t-sug">
+      <h2 id="t-sug">Sugestões</h2>
+      <button id="carregar" type="button">Carregar sugestões</button>
+      <ul id="sug"></ul>
+    </section>
+    <p id="status" role="status" aria-live="polite"></p>
+  </main>
+  <footer><p>Projeto acadêmico de Front-End</p></footer>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
